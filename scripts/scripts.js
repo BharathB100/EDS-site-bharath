@@ -57,6 +57,16 @@ async function loadFonts() {
   }
 }
 
+async function loadConfig(configKey) {
+  try {
+     const res = await fetch(`${window.hlx.codeBasePath}/english/site-configuration.json`);
+     const jsonRes = res.json();
+     return jsonRes;
+  } catch (e) {
+    console.error('Error fetching the Aem config')
+  }
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -163,6 +173,7 @@ async function loadLazy(doc) {
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
+  const n = await loadConfig("name");
   loadFonts();
 }
 
