@@ -61,6 +61,7 @@ async function loadConfig(configKey) {
   try {
     const res = await fetch(`${window.hlx.codeBasePath}/english/site-configuration.json`);
     const jsonRes = res.json();
+    console.log('configKey', configKey);
     return jsonRes;
   } catch (e) {
     console.error('Error fetching the Aem config');
