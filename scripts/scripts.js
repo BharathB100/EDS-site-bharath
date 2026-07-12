@@ -175,7 +175,7 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   const n = await loadConfig('name');
-  console.log('output->',n);
+  console.log('output->', n);
   loadFonts();
 }
 
