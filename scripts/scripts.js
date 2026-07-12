@@ -59,11 +59,12 @@ async function loadFonts() {
 
 async function loadConfig(configKey) {
   try {
-     const res = await fetch(`${window.hlx.codeBasePath}/english/site-configuration.json`);
-     const jsonRes = res.json();
-     return jsonRes;
+    const res = await fetch(`${window.hlx.codeBasePath}/english/site-configuration.json`);
+    const jsonRes = res.json();
+    return jsonRes;
   } catch (e) {
-    console.error('Error fetching the Aem config')
+    console.error('Error fetching the Aem config');
+    return "";
   }
 }
 
@@ -173,7 +174,7 @@ async function loadLazy(doc) {
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
-  const n = await loadConfig("name");
+  const n = await loadConfig('name');
   loadFonts();
 }
 
